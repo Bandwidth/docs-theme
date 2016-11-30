@@ -142,3 +142,23 @@ The default aspect can also be set in the theme configuration in the `book.json`
   }
 }
 ```
+
+### Development
+
+Be sure to install less and uglify globally
+
+```bash
+npm install -g uglify-js
+```
+
+```bash
+npm install -g less
+```
+
+```bash
+npm install -g less-plugin-clean-css
+```
+
+```bash
+npm install
+```
