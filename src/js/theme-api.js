@@ -89,18 +89,30 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             }
         });
 
-        // Set languages in good order
-        languages.reverse();
+        var a = 0;
         $.each(languages, function(i, language) {
-            // Set first (last in array) language as active if no default
+            // Set first language as active if no default
+
             var isDefault = language.default || (!hasCurrentLang && i == (languages.length - 1)),
                 buttonId;
 
+            var className;
+
+            // Add special classes to first and last button
+            if (a === 0) {
+                className = 'lang-switcher first-code-lang ' + (isDefault? ' active ': '');
+            }
+            else if (a === languages.length - 1){
+                className = 'lang-switcher last-code-lang ' + (isDefault? ' active ': '');
+            }
+            else {
+                className = 'lang-switcher' + (isDefault? ' active ': '');
+            }
             // Create button
             buttonId = gitbook.toolbar.createButton({
                 text: language.name,
-                position: 'right',
-                className: 'lang-switcher' + (isDefault? ' active': ''),
+                position: 'left',
+                className: className,
                 onClick: function(e) {
                     // Update language
                     themeApi.currentLang = language.lang;
@@ -115,6 +127,8 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             // Add to list of buttons
             buttonsId.push(buttonId);
 
+            //Incremennt Count
+            a += 1;
             // Set as current language if is default
             if (isDefault) {
                 themeApi.currentLang = language.lang;
