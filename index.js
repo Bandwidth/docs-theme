@@ -110,7 +110,7 @@ module.exports = {
     hooks: {
         config: function(config) {
             // Merge user configured languages with default languages
-            configLanguages = _.unionBy(config.pluginsConfig['theme-api'].languages, DEFAULT_LANGUAGES, 'lang');
+            configLanguages = _.unionBy(config.pluginsConfig['theme-bandwidth'].languages, DEFAULT_LANGUAGES, 'lang');
             return config;
         }
     }

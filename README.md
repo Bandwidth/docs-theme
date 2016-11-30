@@ -18,7 +18,7 @@ Add the theme to your book's configuration (book.json):
 
 ```json
 {
-    "plugins": ["theme-api"]
+    "plugins": ["theme-bandwidth"]
 }
 ```
 
@@ -26,7 +26,7 @@ To use the Dark theme by default:
 
 ```json
 {
-    "plugins": ["theme-api"],
+    "plugins": ["theme-bandwidth"],
     "pluginsConfig": {
         "theme-api": {
             "theme": "dark"
@@ -74,7 +74,7 @@ The name of each language can be configured in your `book.json` file, with it's 
 
 ```json
 {
-  "plugins": ["theme-api"],
+  "plugins": ["theme-bandwidth"],
   "pluginsConfig": {
     "theme-api": {
       "languages": [
@@ -134,7 +134,7 @@ The default aspect can also be set in the theme configuration in the `book.json`
 
 ```json
 {
-  "plugins": ["theme-api"],
+  "plugins": ["theme-bandwidth"],
   "pluginsConfig": {
     "theme-api": {
       "split": true

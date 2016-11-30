@@ -138,7 +138,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
 
     // Initialization
     gitbook.events.bind('start', function(e, config) {
-        var opts = config['theme-api'];
+        var opts = config['theme-bandwidth'];
 
         // Create layout button in toolbar
         gitbook.toolbar.createButton({

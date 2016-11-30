@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-bandwidth-theme",
+  "name": "gitbook-plugin-theme-bandwidth",
   "description": "Bandwidth Theme for GitBook",
   "version": "1.2.0",
   "engines": {
