@@ -1,3 +1,5 @@
+
+
 require(['gitbook', 'jquery'], function(gitbook, $) {
     var buttonsId = [],
         $codes,
@@ -16,6 +18,136 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             id: 3
         }
     ];
+
+    // List of created buttons
+    var buttons = [],
+    // Generated Id for buttons
+    BTN_ID = 0;
+
+    function generateId() {
+        return 'btn-'+(BTN_ID++);
+    }
+
+    // Insert a jquery element at a specific position
+    function insertAt(parent, selector, index, element) {
+        var lastIndex = parent.children(selector).length;
+        if (index < 0) {
+            index = Math.max(0, lastIndex + 1 + index);
+        }
+        parent.append(element);
+
+        if (index < lastIndex) {
+            parent.children(selector).eq(index).before(parent.children(selector).last());
+        }
+    }
+
+
+        // Default click handler
+    function defaultOnClick(e) {
+        e.preventDefault();
+    }
+
+    // Create a new button in the toolbar
+    function createButton(opts) {
+        opts = $.extend({
+            // Aria label for the button
+            label: '',
+
+            // Icon to show
+            icon: '',
+
+            // Inner text
+            text: '',
+
+            // Right or left position
+            position: 'left',
+
+            // Other class name to add to the button
+            className: '',
+
+            // Triggered when user click on the button
+            onClick: defaultOnClick,
+
+            // Button is a dropdown
+            dropdown: null,
+
+            // Position in the toolbar
+            index: null,
+
+            // Button id for removal
+            id: generateId()
+        }, opts || {});
+
+        buttons.push(opts);
+        updateButton(opts);
+
+        return opts.id;
+    }
+
+    // Update a button
+    function updateButton(opts) {
+        var $result;
+        var $toolbar = $('.api-code-top');
+        var $title = $toolbar.find('h3');
+
+        // Build class name
+        var positionClass = 'pull-'+opts.position;
+
+        // Create button
+        var $btn = $('<a>', {
+            'class': 'btn',
+            'text': opts.text? ' ' + opts.text : '',
+            'aria-label': opts.label,
+            'href': '#'
+        });
+
+        // Bind click
+        $btn.click(opts.onClick);
+
+        // Prepend icon
+        if (opts.icon) {
+            $('<i>', {
+                'class': opts.icon
+            }).prependTo($btn);
+        }
+        $btn.addClass(positionClass);
+        $btn.addClass(opts.className);
+        $result = $btn;
+
+        $result.addClass('js-toolbar-action');
+
+        if ($.isNumeric(opts.index) && opts.index >= 0) {
+            insertAt($toolbar, '.btn, .dropdown, h1', opts.index, $result);
+        } else {
+            $result.insertBefore($title);
+        }
+    }
+
+    // Update all buttons
+    function updateAllButtons() {
+        $('.js-toolbar-action').remove();
+        buttons.forEach(updateButton);
+    }
+
+    // Remove a button provided its id
+    function removeButton(id) {
+        buttons = $.grep(buttons, function(button) {
+            return button.id != id;
+        });
+
+        updateAllButtons();
+    }
+
+    // Remove multiple buttons from an array of ids
+    function removeButtons(ids) {
+        buttons = $.grep(buttons, function(button) {
+            return ids.indexOf(button.id) == -1;
+        });
+
+        updateAllButtons();
+    }
+
+
 
     // Instantiate localStorage
     function init(config) {
@@ -109,10 +241,11 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
                 className = 'lang-switcher' + (isDefault? ' active ': '');
             }
             // Create button
-            buttonId = gitbook.toolbar.createButton({
+            buttonId = createButton({
                 text: language.name,
                 position: 'left',
                 className: className,
+                index: a,
                 onClick: function(e) {
                     // Update language
                     themeApi.currentLang = language.lang;
@@ -139,17 +272,6 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
     // Initialization
     gitbook.events.bind('start', function(e, config) {
         var opts = config['theme-bandwidth'];
-
-        // Create layout button in toolbar
-        gitbook.toolbar.createButton({
-            icon: 'fa fa-columns',
-            label: 'Change Layout',
-            onClick: function() {
-                // Update layout
-                themeApi.split = !themeApi.split;
-                saveSettings();
-            }
-        });
 
         // Initialize themes
         gitbook.fontsettings.setThemes(THEMES);
