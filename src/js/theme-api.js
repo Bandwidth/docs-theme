@@ -88,17 +88,13 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
     function updateButton(opts) {
         var $result;
         var $toolbar = $('.api-code-top');
-        var $title = $toolbar.find('h3');
-
-        // Build class name
-        var positionClass = 'pull-'+opts.position;
 
         // Create button
         var $btn = $('<a>', {
             'class': 'btn',
             'text': opts.text? ' ' + opts.text : '',
             'aria-label': opts.label,
-            'href': '#'
+            'href': ''
         });
 
         // Bind click
@@ -110,22 +106,17 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
                 'class': opts.icon
             }).prependTo($btn);
         }
-        $btn.addClass(positionClass);
         $btn.addClass(opts.className);
         $result = $btn;
 
-        $result.addClass('js-toolbar-action');
+        $result.addClass('js-langbar-action');
 
-        if ($.isNumeric(opts.index) && opts.index >= 0) {
-            insertAt($toolbar, '.btn, .dropdown, h1', opts.index, $result);
-        } else {
-            $result.insertBefore($title);
-        }
+        insertAt($toolbar, '.btn', opts.index, $result);
     }
 
     // Update all buttons
     function updateAllButtons() {
-        $('.js-toolbar-action').remove();
+        $('.js-langbar-action').remove();
         buttons.forEach(updateButton);
     }
 
@@ -181,7 +172,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
     // Update code tabs
     function updateCodeTabs() {
         // Remove languages buttons
-        gitbook.toolbar.removeButtons(buttonsId);
+        removeButtons(buttonsId);
         buttonsId = [];
 
         // Update code snippets elements
