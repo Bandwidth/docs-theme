@@ -1,5 +1,7 @@
 .api-code-top .btn.lang-switcher {
     /*color: @button-hover-color;*/
+    text-transform: none;
+    font-weight: 500;
     border-radius: 0;
 
     &.active {
@@ -10,7 +12,7 @@
 .api-code-top {
 
     .btn {
-        display: inline-block;
+        display: block;
         height: @lang-switcher-height;
         padding: 0px 15px;
         border-bottom: none;
@@ -20,7 +22,6 @@
         .box-shadow(none) !important;
         position:relative;
         font-size: @font-size-base;
-        font-weight: bold;
 
         &:hover {
             position: relative;
