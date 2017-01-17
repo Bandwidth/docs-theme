@@ -7,6 +7,9 @@
   vertical-align:top;
   border: 1px solid rgba(0,0,0,.15);
   min-height: 202px;
+  h2{
+    margin: 0;
+  }
 }
 #smscard{
   border-radius: 5px 0px 0px 5px;
@@ -17,9 +20,6 @@
 }
 #pncard{
   border-radius: 0px 5px 5px 0px;
-}
-.devCards h2{
-  margin: 0;
 }
 .devCards.pn.active{
   box-shadow: inset 0px -5px 0px -0px #6cbf0d;
@@ -39,20 +39,17 @@
 #hero{
   padding: 20px 30px;
   max-height: 350px;
-}
-#hero h1{
-  line-height: 1.3em;
+  h1{
+    line-height: 1.3em;
+    max-width: 90%;
+    margin-top: 0px;
+  }
 }
 .languageselector{
   background-color: #272B2D;
   height: 75px;
   padding-top: 40px;
 }
-
-h1#add-phone-calling-and-text-messaging-to-your-app{
-  margin-top: 0px;
-}
-
 .divider{
   clear: both;
   display: block;
@@ -61,4 +58,25 @@ h1#add-phone-calling-and-text-messaging-to-your-app{
 .why, .getStarted{
       padding: 20px 30px;
       border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.number{
+    padding: 10px 15px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 50px;
+    margin-right: 10px;
+    font: 15px monospace;
+    color: #333;
+}
+.getStarted p{
+  margin-bottom: 15px;
+}
+.numArea, .textArea{
+  display: inline-block;
+}
+.numArea{
+  vertical-align: top;
+  min-height: 50px;
+}
+.textArea, .why p{
+  width: 85%;
 }
