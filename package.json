@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "eslint": "2.9.0",
-    "less": "2.6.0",
+    "less": "2.7.2",
     "less-plugin-clean-css": "^1.5.1",
     "preboot": "git+https://github.com/mdo/preboot.git#4aab4edd85f076d50609cbe28e4fe66cc0771701",
     "uglify-js": "2.6.1"

@@ -1,5 +1,3 @@
-
-
 require(['gitbook', 'jquery'], function(gitbook, $) {
     var buttonsId = [],
         $codes,
