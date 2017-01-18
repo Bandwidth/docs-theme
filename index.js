@@ -11,10 +11,15 @@ function generateMethod(book, body, examples) {
         $apiMethod = $('div.api-method'),
     // Method definition
         $apiDefinition = $('<div class="api-method-definition"></div>'),
+    //  Definition Top
+        $apiDefinitionTop = $('<div class="api-definition-top"></div>'),
     // Method code
-        $apiCode = $('<div class="api-method-code"></div>');
+        $apiCode = $('<div class="api-method-code"></div>'),
+    // Code Top Bar
+        $apiCodeTop = $('<div class="api-code-top"></div>');
 
     // Append elements
+    $apiCode.append($apiCodeTop);
     $apiMethod.append($apiDefinition);
     $apiMethod.append($apiCode);
 
@@ -25,7 +30,7 @@ function generateMethod(book, body, examples) {
     })
     .then(function(apiDefinition) {
         $apiDefinition.html(apiDefinition);
-
+        $apiDefinition.prepend($apiDefinitionTop);
         // Set method examples
         return Q(examples).eachSeries(function(example) {
             var $example;
