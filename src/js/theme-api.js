@@ -281,13 +281,16 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         if(localStorage.getItem('popState') != 'shown'){
             $("#banner").show();
             $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
-	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
+	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
             localStorage.setItem('popState','shown')
+        } else {
+            $('.book-summary, .book-body').removeClass('mobile');
         }
 
         $('#bannerClose').click(function(e){
             $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
 	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
+            $('.book-summary, .book-body').removeClass('mobile');
             $('#banner').hide();
         });
     });
