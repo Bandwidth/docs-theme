@@ -76,7 +76,8 @@
 .headbutton:hover{
   padding-bottom: 10px;
 }
-.banner{
+#banner{
+  display: none;
   width: 100%;
   height: 50px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9c644+0,f6aa42+100 */
@@ -98,4 +99,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c644', end
   float: left;
   margin-top: 15px;
   font-size: 14px;
+}
+.bannerContainer a{
+  float: none;
+  border-bottom: 1px solid;
+}
+#bannerClose{
+  position: absolute;
+  right: 0px;
+  top: -15px;
+  padding: 15px;
+  z-index: 100;
+  margin-bottom: 0px;
 }
