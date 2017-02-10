@@ -277,6 +277,19 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         updateCodeTabs();
         // updateComments();
         updateDisplay();
+
+        if(localStorage.getItem('popState') != 'shown'){
+            $("#banner").show();
+            $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
+	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
+            localStorage.setItem('popState','shown')
+        }
+
+        $('#bannerClose').click(function(e){
+            $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
+	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
+            $('#banner').hide();
+        });
     });
 
     // Comments toggled event
