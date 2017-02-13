@@ -278,19 +278,23 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         // updateComments();
         updateDisplay();
 
-        if(localStorage.getItem('popState') != 'shown'){
+        if (localStorage.getItem('popState') != 'shown' && $(window).width() < 980){
+          $("#banner").show();
+          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 200px)');
+          $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
+          localStorage.setItem('popState','shown');
+        } else if (localStorage.getItem('popState') != 'shown'){
             $("#banner").show();
             $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
-	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
-            localStorage.setItem('popState','shown')
+	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
+            localStorage.setItem('popState','shown');
         } else {
-            $('.book-summary, .book-body').removeClass('mobile');
+            $('.book-body, .book-summary').css('height','calc(100% - 70px)');
         }
 
         $('#bannerClose').click(function(e){
             $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
 	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
-            $('.book-summary, .book-body').removeClass('mobile');
             $('#banner').hide();
         });
     });
