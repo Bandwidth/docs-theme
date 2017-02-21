@@ -299,7 +299,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         });
 
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
-        $('.markdown-section').find("a[target='_blank']").append('&nbsp;<i class="icons8-open-in-window"></i>');
+        $('.markdown-section').find("a[target='_blank']:not(:has(>code))").append('&nbsp;<i class="icons8-open-in-window"></i>');
         $('.externalLink').hover(function(){
             $(this).addClass('show');
         }, function(){
