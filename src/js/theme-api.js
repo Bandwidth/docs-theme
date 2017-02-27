@@ -302,7 +302,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         bannerControl();
 
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
-        $('.markdown-section').find("a[target='_blank']:not(:has(>code))").append('&nbsp;<i class="icons8-open-in-window"></i>');
+        $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
         $('.externalLink').hover(function(){
             $(this).addClass('show');
         }, function(){
