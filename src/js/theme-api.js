@@ -272,38 +272,93 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         init(opts);
     });
 
+    // Banner control
+    function bannerControl(){
+      if (localStorage.getItem('popState') != 'shown' && $(window).width() < 980){
+        $("#banner").show();
+        $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 200px)');
+        $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
+        localStorage.setItem('popState','shown');
+      } else if (localStorage.getItem('popState') != 'shown'){
+          $("#banner").show();
+          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
+          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
+          localStorage.setItem('popState','shown');
+      } else {
+          $('.book-body, .book-summary').css('height','calc(100% - 70px)');
+      }
+
+      $('#bannerClose').click(function(e){
+          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
+          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
+          $('#banner').hide();
+      });
+    };
     // Update state
     gitbook.events.on('page.change', function() {
         updateCodeTabs();
         // updateComments();
         updateDisplay();
-
-        if (localStorage.getItem('popState') != 'shown' && $(window).width() < 980){
-          $("#banner").show();
-          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 200px)');
-          $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
-          localStorage.setItem('popState','shown');
-        } else if (localStorage.getItem('popState') != 'shown'){
-            $("#banner").show();
-            $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
-	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
-            localStorage.setItem('popState','shown');
-        } else {
-            $('.book-body, .book-summary').css('height','calc(100% - 70px)');
-        }
-
-        $('#bannerClose').click(function(e){
-            $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
-	          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
-            $('#banner').hide();
-        });
+        bannerControl();
 
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
-        $('.markdown-section').find("a[target='_blank']:not(:has(>code))").append('&nbsp;<i class="icons8-open-in-window"></i>');
+        $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(:has(>img)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
         $('.externalLink').hover(function(){
             $(this).addClass('show');
         }, function(){
             $(this).removeClass('show');
+        });
+
+        $('.markdown-section').find('table').wrap("<div class='table-wrap'></div>");
+
+        // Show scroll shadows when table can scroll horizontally
+        $('table').each(function() {
+            var table = this;
+            var tableWrap = $(this).parent('.table-wrap');
+            var wrapWidth = $(tableWrap).width();
+            var tableWidth = $(table).outerWidth();
+
+            if (tableWidth > wrapWidth) {
+                // Show right shadow when table can only scroll right
+                $(tableWrap).addClass('shadow-r');
+            }
+            else {
+                $(tableWrap).removeClass('shadow-r');
+            }
+            $(tableWrap).scroll(function(){
+                var tableScroll = $(this).scrollLeft();
+                if (tableScroll == (tableWidth - wrapWidth)) {
+                    // Show left shadow when table can only scroll left
+                    $(this).removeClass('shadow-rl shadow-r').addClass('shadow-l');
+                } else if (tableScroll > 0) {
+                    // Show left and right shadows when table can scroll both ways
+                    $(this).removeClass('shadow-l shadow-r').addClass('shadow-rl');
+                } else {
+                    // Show right shadow when table can only scroll right
+                    $(this).removeClass('shadow-l shadow-rl').addClass('shadow-r');
+                }
+            });
+            $(window).resize(function() {
+                var tableScroll = $(tableWrap).scrollLeft();
+                wrapWidth = $(tableWrap).width();
+                tableWidth = $(table).outerWidth();
+
+                if (tableWidth > wrapWidth) {
+                    if (tableScroll == (tableWidth - wrapWidth)) {
+                        // Show left shadow when table can only scroll left
+                        $(tableWrap).removeClass('shadow-rl shadow-r').addClass('shadow-l');
+                    } else if (tableScroll > 0) {
+                        // Show left and right shadows when table can scroll both ways
+                        $(tableWrap).removeClass('shadow-l shadow-r').addClass('shadow-rl');
+                    } else {
+                        // Show right shadow when table can only scroll right
+                        $(tableWrap).removeClass('shadow-l shadow-rl').addClass('shadow-r');
+                    }
+                }
+                else {
+                    $(tableWrap).removeClass('shadow-l shadow-rl shadow-r');
+                }
+            });
         });
     });
 
