@@ -351,3 +351,21 @@ code:before, code:after{
 .divider{
    clear: both;
 }
+.api-method-sample{
+  max-height: 300px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.expandCode{
+  display: block;
+margin: 0 auto;
+width: 120px;
+border: 1px solid;
+text-align: center;
+margin-bottom: 40px;
+border-radius: 50px;
+cursor: pointer;
+}
+.expandable.hidden + .expandCode {
+  display: none;
+}
