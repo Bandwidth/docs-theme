@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 .book-summary{
   font-family: 'Raleway', Open Sans;
 }
@@ -19,7 +22,7 @@ a[aria-label="Change Layout"]{
 }
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
-  top: 70px;
+  top: 70px !important;
 }
 .book-header h1 a, .book-header h1 a:hover {
   border-bottom: none;
@@ -63,7 +66,7 @@ a[aria-label="Change Layout"]{
 .book-summary ul.summary li.active>a {
   color: #00bcec;
 }
-.summary li:last-child{
+.gitbook-link{
   display: none;
 }
 .markdown-section h1 {
@@ -263,11 +266,6 @@ pre.smstut, pre.voicetut, pre.pntut, .markdown-section pre{
   background-color: #272B2D;
   color: #fff;
 }
-th{
-  color: #fff;
-  background: #3a455c;
-  border:none !important;
-}
 .markdown-section code {
   padding: .3em;
   margin: 0;
@@ -308,4 +306,48 @@ code:before, code:after{
   background-color:#e8562e !important;
   color: #fff !important;
   border:none !important;
+}
+.externalLink .icons8-open-in-window{
+  display: none;
+}
+.externalLink.show .icons8-open-in-window{
+  display: inherit;
+}
+.get + code{
+    width: ~"calc(100% - 39px)";
+}
+.post + code{
+    width: ~"calc(100% - 47px)";
+}
+.delete + code{
+    width: ~"calc(100% - 61px)";
+}
+.put + code{
+    width: ~"calc(100% - 39px)";
+}
+.api-method-definition p code:nth-of-type(2) {
+    display: inline-block;
+    word-wrap: normal;
+    overflow-x: auto;
+    border-radius: 0px 3px 3px 0px;
+    font-size: .8em !important;
+    white-space:nowrap;
+}
+.api-method-definition p code:nth-of-type(1) {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 3px 0px 0px 3px;
+}
+.expand{
+   content: 'EXPAND';
+   visibility: hidden;
+   font-size: 1em;
+   width: 27px;
+   height: 27px;
+   float: left;
+   padding-top: 5px !important;
+   cursor: pointer;
+}
+.divider{
+   clear: both;
 }

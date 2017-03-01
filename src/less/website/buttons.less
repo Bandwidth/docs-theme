@@ -31,28 +31,28 @@ button{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.secondary{
+button.secondary{
   background:rgba(0,188,236, 0.0);
   border: 1px solid #fff;
 }
-.secondary:hover{
+button.secondary:hover{
   background-color: rgba(0,0,0, 0.4);
 }
-.hover-go:hover:before{
+button.hover-go:hover:before{
   left: 85%;
 }
-.hover-go:before{
+button.hover-go:before{
   left: 160%;
   top: 0;
 }
-.hover-back:before{
+button.hover-back:before{
   left: -60%;
   top: 0;
 }
-.hover-back:hover:before{
+button.hover-back:hover:before{
   left:8%;
 }
-.hover-go:before, .hover-back:before {
+button.hover-go:before, .hover-back:before {
   position: absolute;
   height: 100%;
   font-size: 125%;
@@ -62,10 +62,10 @@ button{
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.right:before {
+button.right:before {
   content: "\f116";
 }
-.left:before{
+button.left:before{
   content: "\f116";
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -73,7 +73,7 @@ button{
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.hover-go:before, .hover-back:before{
+button.hover-go:before, button.hover-back:before{
   font-family: 'Bandwidth';
   speak: none;
   font-style: normal;
@@ -83,7 +83,7 @@ button{
   line-height: 2.8;
   -webkit-font-smoothing: antialiased;
 }
-.hover-go:after, .hover-back:after {
+button.hover-go:after, button.hover-back:after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -91,41 +91,33 @@ button{
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.light{
+button.light{
   color: #243a51;
   border:	1px solid #243a51;
 }
-.light:hover{
+button.light:hover{
   color: #fff;
   background-color: #243a51;
 }
-.medium{
+button.medium{
   font-size: .8em;
   padding:13px 40px;
 }
-.small{
+button.small{
   font-size: .6em;
   padding:11px 30px;
 }
-.submit{
+button.submit{
   background-color: #51B54A;
 }
-.submit:hover{
+button.submit:hover{
   background-color: #43963d;
 }
-.cancel{
+button.cancel{
   background-color: #D74227;
 }
-.cancel:hover{
+button.cancel:hover{
   background-color: #b1351e;
-}
-.bandwidth-color-secondary{
-  border: 2px solid #fabb15;
-  color: #fabb15;
-}
-.bandwidth-color-primary{
-  background-color: #fabb15;
-  color: #fff;
 }
 #smsexpand, #smsfulltut{
   background-color: #a5639b;
@@ -155,7 +147,7 @@ button{
   display: inline-block;
   opacity: 0;
   border-radius: 0px 50px 50px 0px;
-  padding: 10.5px 30px;
+  padding: 10.5px 30px !important;
   vertical-align: top;
   background-color: #a5639b;
   border-left: 1px solid rgb(191, 139, 183);
