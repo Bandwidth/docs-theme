@@ -152,8 +152,11 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         updateDisplay();
     }
 
+
+
     // Update display
     function updateDisplay() {
+        codeExpand();
         // Update layout
         $('.book').toggleClass('two-columns', themeApi.split);
 
@@ -294,12 +297,31 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
           $('#banner').hide();
       });
     };
+
+    function codeExpand(){
+      var code = $('.api-method-sample > pre');
+
+      code.each(function(){
+        if ($(this).height() > $(this).parent().height()){
+          $(this).parent().addClass('expandable');
+        } else {
+          $(this).parent().after('');
+        }
+      });
+    };
+
     // Update state
     gitbook.events.on('page.change', function() {
         updateCodeTabs();
         // updateComments();
         updateDisplay();
         bannerControl();
+        codeExpand();
+        $('.expandable').after('<div class="expandCode">Show more</div>');
+
+        $('.expandCode').click(function(){
+            $(this).prev().css('max-height','none');
+        });
 
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
         $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(:has(>img)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
