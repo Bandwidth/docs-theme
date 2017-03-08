@@ -254,8 +254,9 @@ div.radio-group.vertical input[type="radio"]:first-of-type + label:after {
 div.radio-group.vertical input[type="radio"]:last-of-type + label:after {
     border-radius: 0 0 3px 3px;
 }
-pre{
+.expandable pre{
   border-radius: 3px;
+  padding-bottom: 30px;
 }
 pre code{
   border: none !important;
@@ -356,16 +357,54 @@ code:before, code:after{
   overflow: hidden;
   margin-bottom: 10px;
 }
+.collapse{
+  max-height: none;
+}
 .expandCode{
   display: block;
 margin: 0 auto;
 width: 120px;
 border: 1px solid;
 text-align: center;
-margin-bottom: 40px;
 border-radius: 50px;
 cursor: pointer;
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+transition: all 0.3s;
 }
-.expandable.hidden + .expandCode {
+.expandFade{
+  position: absolute;
+margin-top: -55px;
+width: ~"calc(100% - 60px)";
+height: 45px;
+padding-top: 10px;
+cursor: pointer;
+background: -moz-linear-gradient(top, rgba(39,43,45,0) 0%, rgba(39,43,45,0.78) 50%, rgba(39,43,45,1) 87%);
+background: -webkit-linear-gradient(top, rgba(39,43,45,0) 0%,rgba(39,43,45,0.78) 50%,rgba(39,43,45,1) 87%);
+background: linear-gradient(to bottom, rgba(39,43,45,0) 0%,rgba(39,43,45,0.78) 50%,rgba(39,43,45,1) 87%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00272b2d', endColorstr='#272b2d',GradientType=0 );
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+transition: all 0.3s;
+}
+.expandFade:hover .expandCode{
+  color: #272B2D;
+  background-color: #fff;
+  width: 100%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+// .expandable.hidden + .expandCode,
+.expandable.hidden + .expandFade {
   display: none;
+}
+.expandCode:before{
+  content: 'Show more';
+}
+.showLessText{
+  width: 100%;
+}
+.showLessText:before{
+  content: 'Show less';
 }
