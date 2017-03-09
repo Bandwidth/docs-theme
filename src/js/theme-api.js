@@ -152,8 +152,11 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         updateDisplay();
     }
 
+
+
     // Update display
     function updateDisplay() {
+        codeExpand();
         // Update layout
         $('.book').toggleClass('two-columns', themeApi.split);
 
@@ -294,13 +297,33 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
           $('#banner').hide();
       });
     };
+
+    function codeExpand(){
+      var code = $('.api-method-sample > pre');
+
+      code.each(function(){
+        if ($(this).outerHeight() > $(this).parent().height()){
+          $(this).parent().addClass('expandable');
+        } else {
+          $(this).parent().after('');
+        }
+      });
+    };
+
     // Update state
     gitbook.events.on('page.change', function() {
         updateCodeTabs();
         // updateComments();
         updateDisplay();
         bannerControl();
+        codeExpand();
+        $('.expandable').after('<div class="expandFade"><div class="expandCode"></div></div>');
+        $('.expandFade').click(function(){
+            $(this).prev().toggleClass('collapse');
+            $(this).children('.expandCode').toggleClass('showLessText');
+        });
 
+        // External link icon on hover
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
         $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(:has(>img)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
         $('.externalLink').hover(function(){
@@ -309,9 +332,8 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
             $(this).removeClass('show');
         });
 
-        $('.markdown-section').find('table').wrap("<div class='table-wrap'></div>");
-
         // Show scroll shadows when table can scroll horizontally
+        $('.markdown-section').find('table').wrap("<div class='table-wrap'></div>");
         $('table').each(function() {
             var table = this;
             var tableWrap = $(this).parent('.table-wrap');
