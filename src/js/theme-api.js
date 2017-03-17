@@ -326,6 +326,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         // External link icon on hover
         $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
         $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(:has(>img)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
+        $('a').has('code').addClass('anchor-code');
         $('.externalLink').hover(function(){
             $(this).addClass('show');
         }, function(){
