@@ -87,6 +87,7 @@ a[aria-label="Change Layout"]{
 }
 .book-summary ul.summary li a, .book-summary ul.summary li span {
   padding: 5px 15px;
+
 }
 .book-summary ul.summary li.header {
   padding: 15px 15px 0px 15px;
@@ -123,27 +124,101 @@ body *{
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-a{
-  font-weight: 500;
-  border-bottom: 1px solid;
-  text-decoration:none;
+a {
+  color: #008db1;
+  text-decoration: none;
   cursor: pointer;
   cursor: hand;
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  transition: all 0.1s;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
 }
-a:hover{
-  padding-bottom:.15em;
-  text-decoration: none !important;
+a:focus {
+  outline: none;
 }
-a:focus{
-  border-bottom: 5px solid #d9f5fc;
-  text-decoration: none !important;
+a:active {
+  color: #008db1;
 }
-a:active{
-  padding-bottom:0em;
-  color:#dcdcdc;
+a:after {
+    content: "";
+    background: #008db1;
+    border-radius: 2em;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: -.1em;
+    left: 0;
+    transition: height .15s ease, width .15s ease, left .15s ease, opacity .15s ease .15s;
+}
+a.aimg:after,
+.head ul li a:after,
+.book-header > a:after,
+.api-code-top > a:after{
+  height: 0px;
+}
+a:hover:after,
+a:focus:after,
+a.anchor-i:hover:after,
+a.anchor-i:focus:after {
+    height: ~"calc(100% + .2em)";
+    width: ~"calc(100% + .6em)";
+    left: -.3em;
+    opacity: .125;
+    transition: height .15s ease, width .15s ease, left .15s ease, opacity 0s ease;
+}
+.book-summary ul.summary li a:hover,
+.book-summary ul.summary li a:focus{
+  text-decoration: none;
+}
+.book-summary ul.summary li a:hover:after,
+.book-summary ul.summary li a:focus:after,
+a.aimg:hover:after,
+a.aimg:focus:after,
+.head > a:hover:after,
+.head > a:focus:after,
+.book-header > a:hover:after,
+.book-header > a:focus:after,
+.api-code-top > a:hover:after,
+.api-code-top > a:focus:after{
+  background: #fff;
+  text-decoration: none;
+  opacity: 0.0;
+}
+li.chapter, li.header{
+  border-left: 3px solid #f3f3f3;
+}
+li.chapter:hover{
+  border-left: 3px solid #00bcec;
+}
+a.anchor-external i {
+  background: #fff;
+  border-radius: 2em;
+  padding: 0 .25em;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: right 0.3s ease 0.2s, opacity 0.2s ease;
+}
+a.anchor-external:hover i,
+a.anchor-external:focus i {
+  opacity: 1;
+  right: -1.5em;
+  transition: right 0.3s ease, opacity 0.2s ease 0.1s;
+}
+a.anchor-i:after {
+  height: 0;
+}
+a.anchor-code:after,
+a.anchor-img:after {
+  display: none;
+}
+a.anchor-code:hover code,
+a.anchor-code:focus code {
+  background-color: #d9f5fc;
+}
+.markdown-section a:active, .markdown-section a:focus, .markdown-section a:hover {
+  text-decoration: none;
 }
 .radio-group{
   height: 75px;
