@@ -116,6 +116,7 @@ function generateMultiMethod(book, body, examples) {
     })
     .then(function() {
         // Return whole HTML
+        $('.mm-code-top').parent('.api-method-code').css('min-height', '0vh');
         return $.html('div.api-method');
     });
 }
