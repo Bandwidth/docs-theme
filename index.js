@@ -67,7 +67,7 @@ function generateMultiMethod(book, body, examples) {
     //  Definition Top
         $apiDefinitionTop = $('<div class="api-definition-top"></div>'),
     // Method code
-        $apiCode = $('<div class="api-method-code"></div>'),
+        $apiCode = $('<div class="api-method-code mm-code-first"></div>'),
     // Code Top Bar
         $apiCodeTop = $('<div class="api-code-top mm-code-top"></div>');
 
