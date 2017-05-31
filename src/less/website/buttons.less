@@ -121,9 +121,10 @@ button.cancel:hover{
 }
 #smsexpand, #smsfulltut{
   background-color: #2af9ba;
+  color:#005c44;
 }
-#smsexpand:hover, #smsfulltut:hover{
-  color: #005c44 !important;
+#smsexpand:hover, #smsfulltut:hover, #smscard a:hover {
+  color: #fff !important;
 }
 #voiceexpand, #voicefulltut{
   background-color: #a95adf;
@@ -150,7 +151,7 @@ button.cancel:hover{
   padding: 9px 30px !important;
   vertical-align: top;
   background-color: #a95adf;
-  border-left: 1px solid rgb(191, 139, 183);
+  border-left: 1px solid #b9fdeb;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -217,4 +218,10 @@ i{
 a img {
   border:none;
   vertical-align:top;
+}
+.devCards a{
+  pointer-events: none;
+}
+.devCards.active a{
+  pointer-events: all;
 }
