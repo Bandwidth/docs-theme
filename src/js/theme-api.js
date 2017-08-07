@@ -279,13 +279,13 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
     function bannerControl(){
       if (localStorage.getItem('popState') != 'shown' && $(window).width() < 980){
         $("#banner").show();
-        $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 200px)');
-        $('.head').has('#banner').siblings().children().find('.book-header').css('top','200px');
+        $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 220px)');
+        $('.head').has('#banner').siblings().children().find('.book-header').css('top','220px');
         localStorage.setItem('popState','shown');
       } else if (localStorage.getItem('popState') != 'shown'){
           $("#banner").show();
-          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 120px)');
-          $('.head').has('#banner').siblings().children().find('.book-header').css('top','120px');
+          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 140px)');
+          $('.head').has('#banner').siblings().children().find('.book-header').css('top','140px');
           localStorage.setItem('popState','shown');
       } else {
           $('.book-body, .book-summary').css('height','calc(100% - 70px)');
