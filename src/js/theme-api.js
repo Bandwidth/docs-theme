@@ -324,15 +324,10 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         });
 
         // External link icon on hover
-        $('.markdown-section').find("a[target='_blank']").addClass('externalLink');
+        $('.markdown-section').find("a[target='_blank']").addClass('anchor-external');
         $('.markdown-section').find("a[target='_blank']:not(:has(>code)):not(:has(>img)):not(td > a)").append('&nbsp;<i class="icons8-open-in-window"></i>');
         $('a').has('code').addClass('anchor-code');
         $('a').has('img').addClass('aimg');
-        $('.externalLink').hover(function(){
-            $(this).addClass('show');
-        }, function(){
-            $(this).removeClass('show');
-        });
 
         // Show scroll shadows when table can scroll horizontally
         $('.markdown-section').find('table').wrap("<div class='table-wrap'></div>");
