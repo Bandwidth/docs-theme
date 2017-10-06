@@ -1,0 +1,122 @@
+.form-input {
+    padding: var(--m) 0;
+}
+input {
+    color: var(--med-grey);
+    font-family: 'Overpass', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+    border: var(--input-border);
+    padding: var(--m);
+    width: 100%;
+    display: block;
+    outline: none;
+    box-shadow: none;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+}
+input:focus,
+input.success:focus,
+input.error:focus {
+    box-shadow: inset 0 -5px 0 var(--bw-light-blue);
+    border-color: var(--border-grey);
+}
+.form-input.disabled {
+    opacity: 0.5;
+}
+input[disabled] {
+    background: var(--disabled-grey);
+    border-color: var(--border-grey);
+}
+input.success {
+    border: var(--bw-green-border);
+    box-shadow: inset 0 -5px 0 var(--bw-light-green);
+}
+input.error {
+    border: var(--bw-red-border);
+    box-shadow: inset 0 -5px 0 #fceae6;
+}
+label {
+    font-weight: 600;
+    padding-bottom: .4em;
+    display: block;
+}
+.required > label:after {
+    content: " *";
+    color: var(--bw-red);
+}
+.help {
+    color: var(--bw-help-text);
+    font-style: italic;
+    font-weight: 300;
+    padding-top: .4em;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.tel-wrap input[type="tel"] {
+    width: auto;
+    display: inline-block;
+}
+.inline-wrap{
+    display: table;
+    width: 100%;
+    padding: 1em 0;
+}
+.blocks{
+    display: table-cell;
+    padding: 0 var(--m);
+}
+.blocks:first-of-type{
+    padding-left: 0;
+}
+.blocks:last-of-type{
+    padding-right: 0;
+}
+.small-block{
+    max-width: 25px;
+}
+.medium-block{
+    max-width: 55px;
+}
+.half-block{
+    width: 50%;
+}
+select{
+    padding: var(--m) var(--l) var(--m) var(--m);
+    border: var(--input-border);
+    border-radius: 0px;
+    width: 100%;
+    color: var(--med-grey);
+    font-family: 'Overpass', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+    cursor: pointer;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: url(../images/arrow.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 35px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+select:focus{
+    box-shadow: inset 0 -5px 0 var(--bw-light-blue);
+    border-color: var(--border-grey);
+    outline: none;
+}
+.expiration select{
+    display: inline-block;
+    width: 50%;
+}
+.expiration select:first-of-type{
+    border-right: none;
+}
