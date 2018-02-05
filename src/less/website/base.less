@@ -440,25 +440,31 @@ code:before, code:after{
   content: "\00a0";
 }
 .get{
-  background-color: #6cbf0d !important;
+  background-color: #00aa6c !important;
   color: #fff !important;
   border:none !important;
   font-family: 'Overpass Mono',monospace;
 }
 .post{
-  background-color: #00bcec !important;
+  background-color: #0099e5 !important;
   color: #fff !important;
   border:none !important;
   font-family: 'Overpass Mono',monospace;
 }
 .put{
-  background-color: #a5639b !important;
+  background-color: #7e2eca !important;
   color: #fff !important;
   border:none !important;
   font-family: 'Overpass Mono',monospace;
 }
 .delete{
-  background-color:#e8562e !important;
+  background-color:#ff391a !important;
+  color: #fff !important;
+  border:none !important;
+  font-family: 'Overpass Mono',monospace;
+}
+.patch{
+  background-color:#93627d !important;
   color: #fff !important;
   border:none !important;
   font-family: 'Overpass Mono',monospace;
@@ -480,6 +486,9 @@ code:before, code:after{
 }
 .put + code{
     width: ~"calc(100% - 40px)";
+}
+.patch + code{
+  width: ~"calc(100% - 56px)";
 }
 .api-method-definition p code:nth-of-type(2) {
     display: inline-block;

@@ -310,9 +310,15 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
       });
     };
 
+    function properPadding(){
+        $('.api-method-code').closest('.markdown-section').css('padding-top','0px');
+    };
+
+
     // Update state
     gitbook.events.on('page.change', function() {
         updateCodeTabs();
+        properPadding();
         // updateComments();
         updateDisplay();
         bannerControl();
@@ -321,6 +327,10 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         $('.expandFade').click(function(){
             $(this).prev().toggleClass('collapse');
             $(this).children('.expandCode').toggleClass('showLessText');
+        });
+
+        $('.hasSecondary').click(function(){
+            $(this).parent().next('.headerDropdown').toggle();
         });
 
         // External link icon on hover
