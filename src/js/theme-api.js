@@ -288,12 +288,12 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
           $('.head').has('#banner').siblings().children().find('.book-header').css('top','140px');
           localStorage.setItem('popState','shown');
       } else {
-          $('.book-body, .book-summary').css('height','calc(100% - 70px)');
+          $('.book-body, .book-summary').css('height','calc(100% - 83px)');
       }
 
       $('#bannerClose').click(function(e){
-          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 70px)');
-          $('.head').has('#banner').siblings().children().find('.book-header').css('top','70px');
+          $('.head').has('#banner').siblings('.book-body, .book-summary').css('height','calc(100% - 83px)');
+          $('.head').has('#banner').siblings().children().find('.book-header').css('top','83px');
           $('#banner').hide();
       });
     };
@@ -310,9 +310,15 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
       });
     };
 
+    function properPadding(){
+        $('.api-method-code').closest('.markdown-section').css('padding-top','0px');
+    };
+
+
     // Update state
     gitbook.events.on('page.change', function() {
         updateCodeTabs();
+        properPadding();
         // updateComments();
         updateDisplay();
         bannerControl();
@@ -321,6 +327,10 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         $('.expandFade').click(function(){
             $(this).prev().toggleClass('collapse');
             $(this).children('.expandCode').toggleClass('showLessText');
+        });
+
+        $('.hasSecondary').click(function(){
+            $(this).parent().next('.headerDropdown').toggle();
         });
 
         // External link icon on hover

@@ -33,3 +33,5 @@ _book
 
 .DS_Store
 .nvmrc
+
+package-lock.json

@@ -2,7 +2,7 @@
     padding: 0;
 
     position: fixed;
-    top: 70px;
+    top: 83px;
     left: 0;
     right: 0;
 
@@ -25,7 +25,7 @@
 
 .head{
   ul{
-    width: 400px;
+    // width: 400px;
     float:right;
     list-style: none;
     margin: 0;
@@ -33,45 +33,73 @@
   }
   ul li{
     float: right;
-    height: 70px;
-    line-height: 70px;
+    height: 83px;
+    line-height: 83px;
     margin-left: 25px;
+    border-bottom: 0px solid #00bef0;
+    -webkit-transition: all 0.1s;
+      -moz-transition: all 0.1s;
+      transition: all 0.1s;
+  }
+  ul li:hover{
+    border-bottom: 5px solid #00bef0;
+  }
+  li.headerButton{
+    border-bottom: none !important;
   }
   a.headerLink{
     border-bottom: none;
     color: inherit;
-    font-size: 12px;
-    color: #651f45;
+    font-size: 14px;
+    color: #333;
     font-weight: 700;
     text-decoration: none;
-    text-transform: uppercase;
     transition: color 0.2s ease, opacity 0.2s ease;
-    letter-spacing: .1em;
   }
   h2{
     float: left;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 1.55em;
     color: #333333;
+    border-left: 1px solid #333;
+    padding-left: 11px;
+    margin-top: 25px;
   }
 }
 
 .head{
   display: block;
-  height:70px;
+  height:83px;
   width: 100%;
-  background-color: #fff;
+  // background-color: #fff;
 }
-#headerLogo{
-  background-image: url('https://www.bandwidth.com/wp-content/themes/bandwidth/assets/media/bandwidth-logo.png');
+.head.vmd{
+  background-color: #1f2a44;
+  color: #fff;
+  h2{
+    color: #fff;
+    border-left: 1px solid #fff;
+    padding-left: 11px;
+  }
+  a{
+    color: #fff;
+  }
+  a:after{
+    background: #fff;
+  }
+}
+.headerLogo{
+  background-image: url('/images/mobileLogo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 188.23px;
-  height: 40px;
+  width: 26px;
+  height: 30px;
   float: left;
-  margin: 15px;
+  margin: 26.5px 11px 26.5px 30px;
 }
-
+.headerLogo.vmd{
+  background-image: url('https://app.bandwidth.com/c926aeea0897296628a3b2a554e2fe94.png');
+}
 .headbutton{
   padding: 10px 15px;
   background-color:#00bcec;
@@ -83,6 +111,21 @@
 }
 .headbutton:hover{
   padding-bottom: 10px;
+}
+.headerDropdown{
+  display: none;
+  width: auto;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 10;
+  right: 185px;
+  top: 60px;
+  ul{
+    margin: 0px 25px 0px 0px;
+    padding: 0px;
+  }
 }
 #banner{
   display: none;
