@@ -332,6 +332,16 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         $('.hasSecondary').click(function(){
             $(this).parent().next('.headerDropdown').toggle();
         });
+        $(document).mouseup(function(e)
+            {
+                var container = $(".headerDropdown");
+
+                // if the target of the click isn't the container nor a descendant of the container
+                if (!container.is(e.target) && container.has(e.target).length === 0)
+                {
+                    container.hide();
+                }
+            });
 
         // External link icon on hover
         $('.markdown-section').find("a[target='_blank']").addClass('anchor-external');
