@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- stable
+before_install:
+- npm install -g uglify-js
+- npm install -g less
+- npm install -g less-plugin-clean-css
+script: npm run prepublish
+before_deploy:
+- npm install -g uglify-js
+- npm install -g less
+- npm install -g less-plugin-clean-css
+deploy:
+  provider: npm
+  email: hi@dtolb.com
+  api_key:
+    secure: P3dC2+Ls6x6MYi33n8fNz70GgUVrIqJpqJ5+GKJXOytB2EPF0zIeo0E1QgppFUo0X01w+NFB8TwREC/lOe3Kl29guLlWRdw/epRGAa8URNXoRLbY7MnpRgoxArp9uQnK7Y5TYGylKza9m3LGmN03CsF9TT5R39mNTvRpXIituh3GR4MwXWhqyD+PZD62JInik+6qszVw5oggb+6Ub+3/p56kUpenX8RRBIr8mVgBwLrigF90JRVFMlrzpSlX8DWZEAn0Ag5eWgbqsU1l9mw7sJlGCda6zqtEx9Zb7DRfEZIwX79HKi0l8EHa5Ycq9ONykZoBY6ioShizSpZmmkSQtJ3lOXUv1VDrT2YhNoyVe5sBrL8RxPNuvy2zlQS5ynwjsk2jOLYcJORRAY1mVyXCx5Duq2BvQiCgDbbWeXuKlD999nz+Pq5d7Wy5hxNymTgfX4pCBj8MOkJC1GmTjq9jxwFxwZ9+nRmQBU21iVsfc+h9/WohRLfz7b2eEMFF8+OYKSjlwuEp25/V4/iP/XVnSMPd8wy7YQhyaeC8rKOOQD1vtXwor0ePVgvyL69vA9ScMIVqTMeV5EgtVl6G3rQnF1ZslFKYVCtBrkLxrA9bKVE57tEhnVZq4NxmNV2oUjtdFq1bFea7eRqxQ7Sfl5NG2wGuPHoHBeFF4/3AiMpeMoU=
+  on:
+    tags: true
+    repo: Bandwidth/docs-theme
+    branch: master
