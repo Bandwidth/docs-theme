@@ -1,7 +1,7 @@
 {
   "name": "gitbook-plugin-theme-bandwidth",
   "description": "Bandwidth Theme for GitBook",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "engines": {
     "gitbook": ">=3.0.4"
   },
