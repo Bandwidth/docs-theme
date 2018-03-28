@@ -7,9 +7,10 @@ before_install:
 - npm install -g less-plugin-clean-css
 script: npm run prepublish
 before_deploy:
-- npm install -g uglify-js
-- npm install -g less
-- npm install -g less-plugin-clean-css
+- npm install -g uglify-js@2.6.1
+- npm install -g less@2.7.2
+- npm install -g less-plugin-clean-css@1.5.1
+- npm install
 deploy:
   provider: npm
   email: hi@dtolb.com
