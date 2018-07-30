@@ -520,62 +520,6 @@ code:before, code:after{
 .divider{
    clear: both;
 }
-.api-method-sample{
-  max-height: 300px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-.collapse{
-  max-height: none;
-}
-.expandCode{
-  display: block;
-margin: 0 auto;
-width: 120px;
-border: 1px solid;
-text-align: center;
-border-radius: 50px;
-cursor: pointer;
--webkit-transition: all 0.3s;
--moz-transition: all 0.3s;
-transition: all 0.3s;
-}
-.expandFade{
-  position: absolute;
-margin-top: -55px;
-width: ~"calc(100% - 60px)";
-height: 45px;
-padding-top: 10px;
-cursor: pointer;
-background: -moz-linear-gradient(top, rgba(28,10,20,0) 0%, rgba(28,10,20,0.78) 50%, rgba(28,10,20,1) 87%);
-background: -webkit-linear-gradient(top, rgba(28,10,20,0) 0%,rgba(28,10,20,0.78) 50%,rgba(28,10,20,1) 87%);
-background: linear-gradient(to bottom, rgba(28,10,20,0) 0%,rgba(28,10,20,0.78) 50%,rgba(28,10,20,1) 87%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00272b2d', endColorstr='#1c0a14',GradientType=0 );
--webkit-transition: all 0.3s;
--moz-transition: all 0.3s;
-transition: all 0.3s;
-}
-.expandFade:hover .expandCode{
-  color: #1c0a14;
-  background-color: #fff;
-  width: 100%;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-// .expandable.hidden + .expandCode,
-.expandable.hidden + .expandFade {
-  display: none;
-}
-.expandCode:before{
-  content: 'Show more';
-}
-.showLessText{
-  width: 100%;
-}
-.showLessText:before{
-  content: 'Show less';
-}
 .mm-code-first{
   background-color: #fff !important;
   border-left: 1px solid #fff !important;
