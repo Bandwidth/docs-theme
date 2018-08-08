@@ -152,5 +152,44 @@ npm install -g uglify-js
 npm install -g less
 npm install -g less-plugin-clean-css
 npm install
+```
+
+### Local development and testing
+
+View local changes to the docs-theme repo by doing the following steps
+
+* In the docs-theme repo, run
+```bash
+npm link
+```
+* Navigate to a directory that uses gitbook-plugin-theme-bandwidth (docs, ap-docs...)
+* Run
+```bash
+rm -rf node_modules
+rm -rf _book
+gitbook install
+npm link gitbook-plugin-theme-bandwidth
+gitbook serve
 
 ```
+to view your changes on localhost:4000
+
+* Once testing is finished, run
+```bash
+npm unlink gitbook-plugin-theme-bandwidth
+```
+* Navigate back to docs-theme directory
+* Run
+```
+npm unlink
+```
+
+### Deploying a new version of docs-theme
+
+* Update the version number in package.json
+* Commit your changes on a new branch
+* Open a pull request
+* Once approved and merged into master, go to https://github.com/Bandwidth/docs-theme/releases
+* Click "Draft a new release"
+* Type in your version number and select your branch (typically master is your branch)
+* Click "Publish release" on the bottom of the page
