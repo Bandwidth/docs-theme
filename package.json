@@ -1,14 +1,14 @@
 {
   "name": "gitbook-plugin-theme-bandwidth",
   "description": "Bandwidth Theme for GitBook",
-  "version": "1.9.12",
+  "version": "1.9.13",
   "engines": {
     "gitbook": ">=3.0.4"
   },
   "dependencies": {
     "cheerio": "0.20.0",
     "gitbook-plugin-search": ">=2.0.0",
-    "lodash": "4.12.0",
+    "lodash": "4.17.15",
     "q": "1.4.1",
     "q-plus": "0.0.8"
   },
